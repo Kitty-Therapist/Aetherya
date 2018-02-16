@@ -1,0 +1,30 @@
+{
+  "name": "aetherya",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint .",
+    "fix": "eslint --fix .",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "author": "OGNovuh",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "discord.js": "^11.3.0",
+    "enmap": "^0.4.1",
+    "enmap-level": "^1.0.0",
+    "fs": "0.0.1-security",
+    "fs-nextra": "^0.3.2",
+    "klaw": "^2.1.0",
+    "moment": "^2.19.0",
+    "moment-duration-format": "^1.3.0",
+    "snekfetch": "^3.5.2",
+    "twitch.tv-api": "^1.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0"
+  }
+}
