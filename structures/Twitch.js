@@ -1,5 +1,7 @@
+// Require the base command class.
 const Command = require('./Command.js');
 
+// Create the class so we can use it in commands.
 class Twitch extends Command {
   constructor(client, options) {
     super(client, Object.assign(options, {
@@ -9,6 +11,7 @@ class Twitch extends Command {
     }));
   }
 
+  // The function to announce a stream. Utilizes this.createEmbed.
   async streamEmbed(client, message, title, streamURL, description) {
     const embed = await this.createEmbed(client, message, title, description, streamURL);
     const { streamChannel, prefix } = this.client.settings.get(message.guild.id);
@@ -19,6 +22,7 @@ class Twitch extends Command {
     }
   }
 
+  // Actually create the embed, and get information about the stream.
   async createEmbed(client, message, title, streamURL, description) {
     const { 
       RichEmbed 
@@ -38,4 +42,5 @@ class Twitch extends Command {
   }
 }
 
+// Export the class so we can use it in commands.
 module.exports = Twitch;

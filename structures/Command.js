@@ -1,3 +1,4 @@
+// Create the base class, Command.
 class Command {
   constructor(client, {
     name = null,
@@ -30,6 +31,7 @@ class Command {
     };
   }
 
+  // Verifies that a user is actually a user on Discord.
   async verifyUser(user) {
     try {
       const match = /(?:<@!?)?([0-9]{17,20})>?/gi.exec(user);
@@ -42,12 +44,14 @@ class Command {
     }
   }
 
+  // Makes sure a user is actually in the guild.
   async verifyMember(guild, member) {
     const user = await this.verifyUser(member);
     const target = await guild.fetchMember(user);
     return target;
   }
 
+  // Verifies that a message actually exists.
   async verifyMessage(message, msgid) {
     try {
       const match = /([0-9]{17,20})/.exec(msgid);
@@ -60,6 +64,7 @@ class Command {
     }
   }
 
+  // Verifies that a channel actually exists in the guild.
   async verifyChannel(message, chanid) {
     try {
       const match = /([0-9]{17,20})/.exec(chanid);
@@ -72,4 +77,6 @@ class Command {
     }
   }
 }
+
+// Export the class for use in commands.
 module.exports = Command;
