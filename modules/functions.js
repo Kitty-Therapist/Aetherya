@@ -1,3 +1,5 @@
+const { Message } = require('discord.js');
+
 module.exports = (client) => {
 
   /*
@@ -63,6 +65,11 @@ module.exports = (client) => {
   Array.prototype.random = function() {
     return this[Math.floor(Math.random() * this.length)];
   };
+
+  Message.prototype.error = function(message, content, embed, options = {}) {
+    return message.channel.send(`${this.author} \`|❌|\` ${content}`, embed);
+  };
+
 
   // `await client.wait(1000);` to "pause" for 1 second.
   client.wait = require('util').promisify(setTimeout);
