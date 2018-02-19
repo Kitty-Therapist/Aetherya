@@ -95,7 +95,7 @@ const client = new Aetherya({
 });
 console.log(client.config.permLevels.map(p => `${p.level} ${p.name}`));
 
-require('./modules/functions.js')(client);
+require('./util/functions.js')(client);
 
 // All important things are done here. Commands and events are loaded, and a permission level cache is created.
 const init = async () => {
