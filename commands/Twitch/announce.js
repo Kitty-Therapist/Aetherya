@@ -60,17 +60,32 @@ class Announce extends Twitch {
         break;
       }
 
-      case 'azreal': {
-        const role = 'Azrael\'s Stream';
+      case 'joey': {
+        const role = 'Joey\'s Stream';
         const title = rawTitle.split('_').join(' ');
         const description = rawDescription.join(' ');
-        const streamURL = 'https://www.twitch.tv/azraelazzy';
+        const streamURL = 'https://www.twitch.tv/goldmanjh';
         await this.streamEmbed(this.client, message, title, description, streamURL);
         const channel = message.guild.channels.find('name', streamChannel);
         const streamRole = await message.guild.roles.find('name', `${role}`);
         if (streamRole.mentionable === false) await streamRole.edit({ mentionable: true });
         await channel.send(`${streamRole}`);
         await streamRole.edit({ mentionable: false });
+        break;
+      }
+
+      case 'bananakins': {
+        const role = 'Bananakin\'s Stream';
+        const title = rawTitle.split('_').join(' ');
+        const description = rawDescription.join(' ');
+        const streamURL = 'https://www.twitch.tv/bananakin_skywalker';
+        await this.streamEmbed(this.client, message, title, description, streamURL);
+        const channel = message.guild.channels.find('name', streamChannel);
+        const streamRole = await message.guild.roles.find('name', `${role}`);
+        if (streamRole.mentionable === false) await streamRole.edit({ mentionable: true });
+        await channel.send(`${streamRole}`);
+        await streamRole.edit({ mentionable: false });
+
       }
     }
   }
