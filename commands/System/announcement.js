@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Command.js');
+const Command = require('../../structures/Command.js');
 
 class Announcement extends Command {
   constructor(client) {
