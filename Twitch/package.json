@@ -1,0 +1,15 @@
+{
+  "name": "aetherya-twitch",
+  "version": "0.0.1",
+  "description": "A Twitch interface for the Discord bot Aetherya",
+  "main": "app.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "author": "OGNovuh",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^4.18.2",
+    "tmi.js": "^1.2.1"
+  }
+}
