@@ -30,6 +30,7 @@ class Mute extends Moderation {
       await target.addRole(muteRole);
       await this.buildModLog(this.client, message.guild, 'm', target, message.author, reason);
       await message.channel.send(`\`${target.user.tag}\` was successfully muted.`);
+      await message.guild.channels.get('name', 'muted').send(`:bolbmute: Muted **${target.user.tag}** - \`${reason}\``);
     } catch (error) {
       throw error;
     }

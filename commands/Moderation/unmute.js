@@ -27,7 +27,7 @@ class Mute extends Moderation {
     const reason   = args.splice(1, args.length).join(' ');
     if (!reason)     return message.error(message, 'Invalid command usage, you must supply a reason to use this command.');
     try {
-      await target.addRole(muteRole);
+      await target.removeRole(muteRole);
       await this.buildModLog(this.client, message.guild, 'm', target, message.author, reason);
       await message.channel.send(`\`${target.user.tag}\` was successfully muted.`);
     } catch (error) {

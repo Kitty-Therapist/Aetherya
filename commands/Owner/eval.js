@@ -32,14 +32,14 @@ class Eval extends Command {
         output = await output;
         asyncTime = stopwatch.friendlyDuration;
       }
+      const type = this.getType(output);
       output = inspect(output, { depth: 0, maxArrayLength: null });
       output = output.replace(filter, '[TOKEN]');
       output = this.clean(output);
-      const type = typeof(output);
       if (output.length < 1950) {
         stopwatch.stop();
         const time = this.formatTime(syncTime, asyncTime);
-        message.channel.send(`**Output:**\n\`\`\`js\n${output}\`\`\`\n**Type:**\`\`\`${type}\`\`\`\n${time}`);
+        message.channel.send(`**Output:**\n\`\`\`js\n${output}\`\`\`\n**Type:**\`\`\`${type.toLowerCase()}\`\`\`\n${time}`);
       } else {
         try {
           const { body } = await post('https://www.hastebin.com/documents').send(output);
@@ -61,6 +61,15 @@ class Eval extends Command {
     return text
       .replace(/`/g, '`' + String.fromCharCode(8203))
       .replace(/@/g, '@' + String.fromCharCode(8203));
+  }
+
+  getType(input) {
+    switch (typeof input) {
+      case 'object': return input === null ? 'null' : input.constructor ? input.constructor.name : 'Object';
+      case 'function': return input.constructor.name;
+      case 'undefined': return 'undefined';
+      default: return typeof input;
+    }
   }
 }
 
