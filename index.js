@@ -6,7 +6,6 @@ const { Client } = require('discord.js');
 const { promisify } = require('util');
 const readdir = promisify(require('fs').readdir);
 const Enmap = require('enmap');
-const EnmapLevel = require('enmap-level');
 const klaw = require('klaw');
 const path = require('path');
 const fs = require('fs');
@@ -21,8 +20,9 @@ class Aetherya extends Client {
     this.commands = new Enmap();
     this.aliases = new Enmap();
 
-    this.settings = new Enmap({ provider: new EnmapLevel({ name: 'settings'}) });
-    this.applications = new Enmap({ provider: new EnmapLevel({ name: 'applications'}) });
+    const Provider = require('enmap-level'); 
+
+    Object.assign(this, Enmap.multi([ 'settings', 'applications'], Provider, {}));
   }
 
   // Create the permission level functions. Allows for restricting commands to certain permission levels created in config.js.
