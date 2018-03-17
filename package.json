@@ -14,7 +14,7 @@
   "license": "Apache 2.0",
   "dependencies": {
     "discord.js": "^11.3.0",
-    "enmap": "^2.0.0",
+    "enmap": "^2.0.1",
     "enmap-level": "^2.0.0",
     "fs": "0.0.1-security",
     "fs-nextra": "^0.3.2",
