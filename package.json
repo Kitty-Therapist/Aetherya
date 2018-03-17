@@ -7,9 +7,17 @@
     "fix": "eslint --fix .",
     "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TotallyAWeebDev/Aetherya.git"
+  },
   "engines": {
     "node": ">=8.5.0"
   },
+  "bugs": {
+    "url": "https://github.com/TotallyAWeebDev/Aetherya/issues"
+  },
+  "homepage": "https://github.com/TotallyAWeebDev/Aetherya#readme",
   "author": "OGNovuh",
   "license": "Apache 2.0",
   "dependencies": {
