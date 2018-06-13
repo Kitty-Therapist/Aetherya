@@ -46,20 +46,6 @@ class Announce extends Twitch {
         break;
       }
 
-      case 'lady': {
-        const role = 'Lady\'s Stream'; 
-        const title = rawTitle.split('_').join(' ');
-        const description = rawDescription.join(' ');
-        const streamURL = 'https://www.twitch.tv/ladylish';
-        await this.streamEmbed(this.client, message, title, description, streamURL);
-        const channel = message.guild.channels.find('name', streamChannel);
-        const streamRole = await message.guild.roles.find('name', `${role}`);
-        if (streamRole.mentionable === false) await streamRole.edit({ mentionable: true });
-        await channel.send(`${streamRole}`);
-        await streamRole.edit({ mentionable: false });
-        break;
-      }
-
       case 'joey': {
         const role = 'Joey\'s Stream';
         const title = rawTitle.split('_').join(' ');
@@ -79,6 +65,32 @@ class Announce extends Twitch {
         const title = rawTitle.split('_').join(' ');
         const description = rawDescription.join(' ');
         const streamURL = 'https://www.twitch.tv/bananakin_skywalker';
+        await this.streamEmbed(this.client, message, title, description, streamURL);
+        const channel = message.guild.channels.find('name', streamChannel);
+        const streamRole = await message.guild.roles.find('name', `${role}`);
+        if (streamRole.mentionable === false) await streamRole.edit({ mentionable: true });
+        await channel.send(`${streamRole}`);
+        await streamRole.edit({ mentionable: false });
+      }
+
+      case 'rashaun': {
+        const role = 'Rashaun\'s Stream';
+        const title = rawTitle.split('_').join(' ');
+        const description = rawDescription.join(' ');
+        const streamURL = 'https://www.twitch.tv/reshayshay';
+        await this.streamEmbed(this.client, message, title, description, streamURL);
+        const channel = message.guild.channels.find('name', streamChannel);
+        const streamRole = await message.guild.roles.find('name', `${role}`);
+        if (streamRole.mentionable === false) await streamRole.edit({ mentionable: true });
+        await channel.send(`${streamRole}`);
+        await streamRole.edit({ mentionable: false });
+       }
+
+      case 'ghoul': {
+        const role = 'Ghoul\'s Stream';
+        const title = rawTitle.split('_').join(' ');
+        const description = rawDescription.join(' ');
+        const streamURL = 'https://www.twitch.tv/ghoulishfantasy';
         await this.streamEmbed(this.client, message, title, description, streamURL);
         const channel = message.guild.channels.find('name', streamChannel);
         const streamRole = await message.guild.roles.find('name', `${role}`);
